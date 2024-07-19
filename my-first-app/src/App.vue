@@ -13,6 +13,9 @@ import StaticsPropsComponent from './components/StaticsPropsComponent.vue'
 import DynamicPropsComponent from './components/DynamicPropsComponent.vue'
 import ComponentEvent from './components/ComponentEvent.vue'
 import EventValidation from './components/EventValidation.vue'
+import SlotComponent from './components/SlotComponent.vue'
+import FallBackComponent from './components/FallBackComponent.vue'
+import NamedSlot from './components/NamedSlot.vue'
 
 const firstName = ref('Daiana')
 const lastName = ref('Campos')
@@ -104,7 +107,23 @@ const formHandler = (username, email, password) => {
     <hr>
     <section>
       <h3>Slot</h3>
-      
+      <SlotComponent>
+        <p>Saving a paragraph tag in the slot</p>
+      </SlotComponent>
+      <FallBackComponent />
+      <FallBackComponent>
+        <p>Insert new content</p>
+      </FallBackComponent>
+
+      <NamedSlot>
+        <template v-slot:one>
+          <p>Insert some random data in the slot "one"</p>
+        </template>
+        <template #two>
+          <p>Insert some random data in the slot "two"</p>
+        </template>
+
+      </NamedSlot>
     </section>
   </div>
 </template>
