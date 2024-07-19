@@ -1,0 +1,117 @@
+<script setup>
+import { ref } from 'vue'
+
+import HelloWorld from './components/HelloWorld.vue'
+import TextDynamic from './components/TextDynamic.vue'
+import BindingAttributes from './components/BindingAttirbutes.vue'
+import GlobalStyles from './components/assets/GlobalStyles.vue'
+import HandlingEvents from './components/HandlingEvents.vue'
+import VIfElse from './components/VIfElse.vue'
+import ListRendering from './components/ListRendering.vue'
+import InputBinding from './components/InputBinding.vue'
+import StaticsPropsComponent from './components/StaticsPropsComponent.vue'
+import DynamicPropsComponent from './components/DynamicPropsComponent.vue'
+import ComponentEvent from './components/ComponentEvent.vue'
+import EventValidation from './components/EventValidation.vue'
+
+const firstName = ref('Daiana')
+const lastName = ref('Campos')
+
+const counterEvent = ref(0)
+// const emit = defineEmits({
+//   userInfo: ({ username, email, password }) => {
+//     if (!username) {
+//       console.log("Please enter your name");
+//       return false;
+//     }
+//     if (!email) {
+//       console.log("Please enter your email");
+//       return false;
+//     }
+//     if (!password) {
+//       console.log("Please enter your password");
+//       return false;
+//     } else {
+//       return true;
+//     }
+//   },
+// });
+
+const formHandler = (username, email, password) => {
+  // emit("userInfo", { username, email, password });
+  console.log("username: ", username);
+  console.log("email: ", email);
+  console.log("password: ", password);
+};
+</script>
+
+<template>
+  <div>
+    <HelloWorld />
+    <h2>This is a app with VueJS</h2>
+    <section>
+      <h3>Text interpolation</h3>
+      <TextDynamic />
+    </section>
+    <hr />
+    <section>
+      <h3>Binding attributes</h3>
+      <BindingAttributes />
+    </section>
+    <hr />
+    <section>
+      <h3>Styles in depht</h3>
+      <GlobalStyles />
+    </section>
+    <hr />
+    <section>
+      <h3>Handling event</h3>
+      <HandlingEvents />
+    </section>
+    <hr />
+    <section>
+      <h3>Handling event</h3>
+      <VIfElse />
+    </section>
+    <hr />
+    <section>
+      <h3>List Rendering</h3>
+      <ListRendering />
+    </section>
+    <hr />
+    <section>
+      <h3>Inputs Binding</h3>
+      <InputBinding />
+    </section>
+    <hr />
+    <section>
+      <h3>Passing props</h3>
+      <StaticsPropsComponent name="Juan1to" />
+      <DynamicPropsComponent
+        :firstName="firstName"
+        :lastName="lastName"
+        :friends="['alex', 'john', 'jordan', 'orestis']"
+        :userInfo="{ name: 'alex', age: 20, location: ['Earth', 'IDK'] }"
+      />
+    </section>
+    <hr>
+    <section>
+      <h3>component Event</h3>
+      <p>Count in app.vue: {{counterEvent}}</p>
+      <ComponentEvent @incrementCounter="counterEvent++" />
+      <EventValidation @userInfo="formHandler" />
+    </section>
+    <hr>
+    <section>
+      <h3>Slot</h3>
+      
+    </section>
+  </div>
+</template>
+
+<style scoped>
+h3 {
+  color: green;
+  text-transform: uppercase;
+}
+</style>
