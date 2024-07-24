@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import { provide } from 'vue'
 
 import HelloWorld from './components/HelloWorld.vue'
 import TextDynamic from './components/TextDynamic.vue'
@@ -16,6 +17,7 @@ import EventValidation from './components/EventValidation.vue'
 import SlotComponent from './components/SlotComponent.vue'
 import FallBackComponent from './components/FallBackComponent.vue'
 import NamedSlot from './components/NamedSlot.vue'
+import SchoolComponent from './components/SchoolComponent.vue'
 
 const firstName = ref('Daiana')
 const lastName = ref('Campos')
@@ -46,6 +48,10 @@ const formHandler = (username, email, password) => {
   console.log("email: ", email);
   console.log("password: ", password);
 };
+
+provide('studentName', 'Juanito')
+provide('studentAge', 21)
+provide('studentLocation',['CO', 'UK'])
 </script>
 
 <template>
@@ -124,6 +130,11 @@ const formHandler = (username, email, password) => {
         </template>
 
       </NamedSlot>
+    </section>
+    <hr>
+    <section>
+      <h3>Provide / Inject </h3>
+      <SchoolComponent />
     </section>
   </div>
 </template>
