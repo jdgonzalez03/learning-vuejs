@@ -18,6 +18,7 @@ import SlotComponent from './components/SlotComponent.vue'
 import FallBackComponent from './components/FallBackComponent.vue'
 import NamedSlot from './components/NamedSlot.vue'
 import SchoolComponent from './components/SchoolComponent.vue'
+import LifeCycleComponent from './components/LifeCycleComponent.vue'
 
 const firstName = ref('Daiana')
 const lastName = ref('Campos')
@@ -52,6 +53,8 @@ const formHandler = (username, email, password) => {
 provide('studentName', 'Juanito')
 provide('studentAge', 21)
 provide('studentLocation',['CO', 'UK'])
+
+const showHide = ref(true)
 </script>
 
 <template>
@@ -135,6 +138,12 @@ provide('studentLocation',['CO', 'UK'])
     <section>
       <h3>Provide / Inject </h3>
       <SchoolComponent />
+    </section>
+    <hr>
+    <section>
+      <h3>Life Cycle Hooks </h3>
+      <LifeCycleComponent v-if="showHide"/>
+      <button @click="showHide = !showHide">Show/Hide</button>
     </section>
   </div>
 </template>
