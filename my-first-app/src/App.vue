@@ -19,6 +19,8 @@ import FallBackComponent from './components/FallBackComponent.vue'
 import NamedSlot from './components/NamedSlot.vue'
 import SchoolComponent from './components/SchoolComponent.vue'
 import LifeCycleComponent from './components/LifeCycleComponent.vue'
+import BasicComponent from './components/BasicComponent.vue'
+import ReactiveComponent from './components/ReactiveComponent.vue'
 
 const firstName = ref('Daiana')
 const lastName = ref('Campos')
@@ -144,6 +146,13 @@ const showHide = ref(true)
       <h3>Life Cycle Hooks </h3>
       <LifeCycleComponent v-if="showHide"/>
       <button @click="showHide = !showHide">Show/Hide</button>
+    </section>
+
+    <hr>
+    <section>
+      <h3>Watchers </h3>
+      <BasicComponent />
+      <ReactiveComponent />
     </section>
   </div>
 </template>
