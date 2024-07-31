@@ -21,6 +21,7 @@ import SchoolComponent from './components/SchoolComponent.vue'
 import LifeCycleComponent from './components/LifeCycleComponent.vue'
 import BasicComponent from './components/BasicComponent.vue'
 import ReactiveComponent from './components/ReactiveComponent.vue'
+import BasicRef from './components/BasicRef.vue'
 
 const firstName = ref('Daiana')
 const lastName = ref('Campos')
@@ -153,6 +154,12 @@ const showHide = ref(true)
       <h3>Watchers </h3>
       <BasicComponent />
       <ReactiveComponent />
+    </section>
+
+    <hr>
+    <section>
+      <h3>Template REF </h3>
+      <BasicRef />
     </section>
   </div>
 </template>
