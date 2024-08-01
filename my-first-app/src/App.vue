@@ -22,6 +22,7 @@ import LifeCycleComponent from './components/LifeCycleComponent.vue'
 import BasicComponent from './components/BasicComponent.vue'
 import ReactiveComponent from './components/ReactiveComponent.vue'
 import BasicRef from './components/BasicRef.vue'
+import AsyncComponent from './components/AsyncComponent.vue'
 
 const firstName = ref('Daiana')
 const lastName = ref('Campos')
@@ -160,6 +161,12 @@ const showHide = ref(true)
     <section>
       <h3>Template REF </h3>
       <BasicRef />
+    </section>
+
+    <hr>
+    <section>
+      <h3>Async Components </h3>
+      <AsyncComponent />
     </section>
   </div>
 </template>
