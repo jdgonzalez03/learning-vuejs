@@ -25,6 +25,7 @@ import BasicRef from './components/BasicRef.vue'
 import AsyncComponent from './components/AsyncComponent.vue'
 import ComposableComponent from './components/ComposableComponent.vue'
 import CustomDirective from './components/CustomDirective.vue'
+import DynamicComponent from './components/DynamicComponent.vue'
 
 const firstName = ref('Daiana')
 const lastName = ref('Campos')
@@ -181,6 +182,12 @@ const showHide = ref(true)
     <section>
       <h3>Custom directives </h3>
       <CustomDirective />
+    </section>
+
+    <hr>
+    <section>
+      <h3>Dynamic Components </h3>
+      <DynamicComponent />
     </section>
   </div>
 </template>
