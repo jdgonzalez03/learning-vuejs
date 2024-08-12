@@ -14,7 +14,7 @@
 
 <template>
   <p>Mouse position is at: {{ x }}, {{ y }}</p>
-  <h4>Another example</h4>
+  <h4>Another example using (useFetch my own composable)</h4>
 
   <div v-if="error">Oops! Error encountered: {{ error.message }}</div>
   <div v-else-if="data">
