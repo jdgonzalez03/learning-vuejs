@@ -26,6 +26,8 @@ import AsyncComponent from './components/AsyncComponent.vue'
 import ComposableComponent from './components/ComposableComponent.vue'
 import CustomDirective from './components/CustomDirective.vue'
 import DynamicComponent from './components/DynamicComponent.vue'
+import GettingDataFetch from './components/GettingDataFetch.vue'
+import GettingDataAxios from './components/GettingDataAxios.vue'
 
 const firstName = ref('Daiana')
 const lastName = ref('Campos')
@@ -188,6 +190,18 @@ const showHide = ref(true)
     <section>
       <h3>Dynamic Components </h3>
       <DynamicComponent />
+    </section>
+
+    <hr>
+    <section>
+      <h3>Fetch Data </h3>
+      <GettingDataFetch />
+    </section>
+
+    <hr>
+    <section>
+      <h3>Axios Data </h3>
+      <GettingDataAxios />
     </section>
   </div>
 </template>
