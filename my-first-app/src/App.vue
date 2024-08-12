@@ -23,6 +23,7 @@ import BasicComponent from './components/BasicComponent.vue'
 import ReactiveComponent from './components/ReactiveComponent.vue'
 import BasicRef from './components/BasicRef.vue'
 import AsyncComponent from './components/AsyncComponent.vue'
+import ComposableComponent from './components/ComposableComponent.vue'
 
 const firstName = ref('Daiana')
 const lastName = ref('Campos')
@@ -167,6 +168,12 @@ const showHide = ref(true)
     <section>
       <h3>Async Components </h3>
       <AsyncComponent />
+    </section>
+
+    <hr>
+    <section>
+      <h3>Composableee </h3>
+      <ComposableComponent />
     </section>
   </div>
 </template>
