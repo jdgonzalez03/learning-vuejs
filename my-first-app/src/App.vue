@@ -67,7 +67,7 @@ const showHide = ref(true)
 </script>
 
 <template>
-  <div>
+  <div class="app-container">
     <HelloWorld />
     <h2>This is a app with VueJS</h2>
     <section>
@@ -206,9 +206,51 @@ const showHide = ref(true)
   </div>
 </template>
 
+
 <style scoped>
+.app-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  border-radius: 8px;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 h3 {
   color: green;
   text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+section {
+  padding: 15px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 30px 0;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: darkgreen;
 }
 </style>
