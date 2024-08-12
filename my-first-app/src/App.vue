@@ -24,6 +24,7 @@ import ReactiveComponent from './components/ReactiveComponent.vue'
 import BasicRef from './components/BasicRef.vue'
 import AsyncComponent from './components/AsyncComponent.vue'
 import ComposableComponent from './components/ComposableComponent.vue'
+import CustomDirective from './components/CustomDirective.vue'
 
 const firstName = ref('Daiana')
 const lastName = ref('Campos')
@@ -174,6 +175,12 @@ const showHide = ref(true)
     <section>
       <h3>Composableee </h3>
       <ComposableComponent />
+    </section>
+
+    <hr>
+    <section>
+      <h3>Custom directives </h3>
+      <CustomDirective />
     </section>
   </div>
 </template>
