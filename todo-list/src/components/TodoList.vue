@@ -1,31 +1,34 @@
 <script setup>
-import { ref } from 'vue'
-
-const newTask = ref(null)
-const tasks = ref([])
-
-const addTask = () => {
-  if (newTask.value.trim() !== '') {
-    tasks.value.push(newTask.value)
-    newTask.value = ''
-  }
-}
-
-const removeTask = (index) => {
-  tasks.value.splice(index, 1)
-}
+  import Navbar from './Navbar.vue';
 </script>
 <template>
-  <h1>Todo List</h1>
-  <div>
-    <input type="text" v-model="newTask" @keyup.enter="addTask" placeholder="Enter a new task" />
-    <button @click="addTask">Add new task</button>
-  </div>
+  <Navbar />
 
-  <ul>
-    <li v-for="(task, index) in tasks" :key="index">
-      {{ task }}
-      <button @click="removeTask(index)">Remove task</button>
-    </li>
-  </ul>
+  <div class="container d-flex justify-content-center mt-4">
+    <form class="row g-3">
+      <div class="col-auto d-flex align-items-center">
+        <label for="inputTitle" class="form-label">Title</label>
+          <input type="text" class="form-control" id="inputTitle" placeholder="Learn Vue 3">
+      </div>
+      <div class="col-auto d-flex align-items-center">
+        <label for="inputDescription" class="form-label">Description</label>
+        <input type="text" class="form-control" id="inputDescription" placeholder="Read Docs">
+      </div>
+      <div class="col-auto d-flex align-items-center">
+        <button type="submit" class="btn btn-primary">Add new task</button>
+  
+      </div>
+    </form>
+  </div>
+  
+
 </template>
+
+<style scoped>
+  label{
+    margin: 12px;
+  }
+
+  
+</style>
+
