@@ -1,4 +1,18 @@
 <script setup>
+  import { ref } from 'vue';
+
+  const emit = defineEmits(['apply-filters'])
+
+  const todoFiltered = ref('')
+  const filter = ref('all')
+
+
+
+  const handleSearch = (event) => {
+    event.preventDefault()
+    emit('apply-filters', { filter: filter.value, todoFiltered : todoFiltered.value })
+  }
+
 </script>
 
 <template>
@@ -14,8 +28,29 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Keywords" aria-label="Search">
+        <form class="d-flex" role="search" @submit.prevent="handleSearch">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="filtersTodo" id="inputAllTodo" checked value="all" v-model="filter">
+            <label class="form-check-label" for="inputAllTodo">
+              All
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="filtersTodo" id="inputCompletedTodo" value="completed" v-model="filter">
+            <label class="form-check-label" for="inputCompletedTodo">
+              Completed
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="filtersTodo" id="inputUncompletedtodo" value="uncompleted" v-model="filter">
+            <label class="form-check-label" for="inputUncompletedtodo">
+              Uncompleted
+            </label>
+          </div>
+        
+        
+          <input class="form-control me-2" type="search" placeholder="Keywords" aria-label="Search" v-model="todoFiltered">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>

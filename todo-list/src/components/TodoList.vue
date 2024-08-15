@@ -9,8 +9,32 @@ const todos = ref([
     title: 'Learn VueJS',
     description: 'Watch videos and read the docs',
     completed: false
+  },
+  {
+    id: 1,
+    title: 'Build a VueJS project',
+    description: 'Create a small project to practice',
+    completed: false
+  },
+  {
+    id: 2,
+    title: 'Read VueJS Composition API',
+    description: 'Study the Composition API documentation',
+    completed: true
+  },
+  {
+    id: 3,
+    title: 'Join VueJS Community',
+    description: 'Participate in online forums and discussions',
+    completed: false
+  },
+  {
+    id: 4,
+    title: 'Master VueJS Directives',
+    description: 'Learn and apply VueJS built-in directives',
+    completed: false
   }
-])
+]);
 
 const newTask = reactive({
   id: null,
@@ -39,9 +63,28 @@ const removeTask = (id) => {
   const index = findTodo(id)
   todos.value.splice(index,1)
 }
+
+const filteredTodos = ref(todos.value);
+
+const applyFilters = ({filter, todoFiltered}) => {
+  // console.log({filter, todoFiltered})
+  filteredTodos.value = todos.value.filter(todo => {
+    //Buscar el titulo que coincida
+    const matchesKeyword = todo.title.toLowerCase().includes(todoFiltered.toLowerCase());
+    //Validar segun el filtro
+    if (filter === 'completed') {
+      return todo.completed && matchesKeyword;
+    } else if (filter === 'uncompleted') {
+      return !todo.completed && matchesKeyword;
+    } else {
+      return matchesKeyword; // 'all' or default case
+    }
+  });
+};
+
 </script>
 <template>
-  <NavBar />
+  <NavBar @apply-filters="applyFilters" />
 
   <!-- Form to add new task -->
   <div class="container d-flex justify-content-center mt-4">
@@ -86,11 +129,11 @@ const removeTask = (id) => {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="todo in todos" :key="todo.id">
+        <tr v-for="todo in filteredTodos" :key="todo.id">
           <th scope="row">{{ todo.title }}</th>
           <td>{{ todo.description }}</td>
           <td>
-            <input class="form-check-input" type="checkbox" :checked="todo.completed" />
+            <input class="form-check-input" type="checkbox" :checked="todo.completed" v-model="todo.completed" />
           </td>
           <td>
             <button @click="removeTask(todo.id)" class="btn btn-danger">
