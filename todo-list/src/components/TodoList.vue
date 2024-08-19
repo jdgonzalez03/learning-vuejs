@@ -77,7 +77,7 @@ const applyFilters = ({filter, todoFiltered}) => {
     } else if (filter === 'uncompleted') {
       return !todo.completed && matchesKeyword;
     } else {
-      return matchesKeyword; // 'all' or default case
+      return matchesKeyword; // 'all'
     }
   });
 };
