@@ -92,6 +92,7 @@ const equals = () => {
 </template>
 
 <style scoped>
+
 main {
   height: 100vh;
   display: flex;
@@ -107,16 +108,55 @@ main {
 
 .display {
   grid-column: 1 / 5;
-  border: 1px solid;
-  margin-bottom: 1px;
-  padding: 0.8em;
   text-align: right;
+  color: white;
+  font-size: 48px;
+  padding: 20px 10px;
+  box-sizing: border-box;
 }
 
 .btn {
   border: 1px solid black;
   text-align: center;
-  padding: 0.8em;
-  margin: 1px;
+  border-radius: 50%;
+  padding: 0.8rem;
+  margin: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+  height: 70px;
 }
+
+.btn-orange {
+  background-color: #f39c12;
+}
+
+.btn-orange:hover {
+  background-color: #e67e22;
+}
+
+.btn-gray {
+  background-color: #7f8c8d;
+  color: black;
+}
+
+.btn-gray:hover {
+  background-color: #95a5a6;
+}
+
+.btn-number {
+  background-color: #bdc3c7;
+  color: black;
+}
+
+.btn-number:hover {
+  background-color: #d5dbdb;
+}
+
+#zero {
+  grid-column: 1 / 3;
+  border-radius: 35px;
+}
+
 </style>
+

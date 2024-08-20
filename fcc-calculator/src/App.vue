@@ -9,6 +9,11 @@ const clear = () => {
   answer.value = ''
 }
 
+const sign = () => {
+  if (answer.value === "") return;
+  answer.value = answer.value.toString().charAt(0) === "-" ? answer.value.slice(1) : "-" + answer.value
+}
+
 const percent = () => {
   if (answer.value === '') return
   answer.value = `${parseFloat(answer.value) / 100}`
@@ -84,10 +89,11 @@ const equals = () => {
   <main>
     <div class="calculator">
       <div id="display" class="display">
-        <div class="formula-screen">{{ expression }}</div>
         <div  class="output-screen">{{ answer }}</div>
+        <div class="formula-screen">{{ expression }}</div>
       </div>
       <button id="clear" @click="clear" class="btn btn-gray">AC</button>
+      <button id="clear" @click="sign" class="btn btn-gray">+/-</button>
       <button id="percent" @click="percent" class="btn btn-gray">%</button>
       <button id="divide" @click="append('/')" class="btn btn-orange">/</button>
       <button id="seven" @click="append('7')" class="btn btn-number">7</button>
@@ -111,6 +117,7 @@ const equals = () => {
 </template>
 
 <style scoped>
+
 main {
   height: 100vh;
   display: flex;
@@ -126,32 +133,63 @@ main {
 
 .display {
   grid-column: 1 / 5;
-  border: 1px solid;
   text-align: right;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  color: white;
+  font-size: 48px;
+  padding: 20px 10px;
+  box-sizing: border-box;
+}
+
+.formula-screen{
+  font-size: 32px;
+  color: gray;
 }
 
 .display div {
-  border: 1px solid black;
-  width: 100%;
-  height: 1.5rem;
-  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
 .btn {
   border: 1px solid black;
   text-align: center;
-  padding: 0.8em;
-  margin: 1px;
+  border-radius: 50%;
+  padding: 0.8rem;
+  margin: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+  height: 70px;
+}
+
+.btn-orange {
+  background-color: #f39c12;
+}
+
+.btn-orange:hover {
+  background-color: #e67e22;
+}
+
+.btn-gray {
+  background-color: #7f8c8d;
+  color: black;
+}
+
+.btn-gray:hover {
+  background-color: #95a5a6;
+}
+
+.btn-number {
+  background-color: #bdc3c7;
+  color: black;
+}
+
+.btn-number:hover {
+  background-color: #d5dbdb;
 }
 
 #zero {
   grid-column: 1 / 3;
+  border-radius: 35px;
 }
-#clear {
-  grid-column: 1 / 3;
-}
+
 </style>
