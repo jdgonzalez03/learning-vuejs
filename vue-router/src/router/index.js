@@ -15,6 +15,19 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
+      path: '/session',
+      component: () => import('../views/SessionView.vue'),
+      children: [
+        {
+          path: '',
+          components: {
+            default: () => import('../views/LoginView.vue'),
+            register: () => import('../views/RegisterView.vue')
+          }
+        }
+      ]
+    },
+    {
       path: '/chats',
       name: 'chats',
       component: () => import('../views/ChatsView.vue'),
