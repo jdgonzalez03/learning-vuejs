@@ -8,6 +8,27 @@ const chats = ref([
   { id: 2, name: 'Daniel' },
   { id: 3, name: 'Miguel' }
 ])
+
+
+// watch(
+//   () => route.params,
+//   (val) => {
+//   console.log('update params en chatsview', val);
+//   chats.value = [
+//     {
+//       id: 1,
+//       name: 'Ximena'
+//     },
+//     {
+//       id: 2,
+//       name: 'Juan'
+//     },
+//     {
+//       id: 3,
+//       name: 'Pedro'
+//     }
+//   ]
+// }, { immediate: true })
 </script>
 
 <template>

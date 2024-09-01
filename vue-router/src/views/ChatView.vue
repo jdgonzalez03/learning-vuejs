@@ -1,8 +1,16 @@
 <script setup>
-import {ref, computed} from 'vue'
-import { useRoute } from 'vue-router';
+import {ref, computed, defineProps, toRefs} from 'vue'
 
-const route = useRoute()
+const props = defineProps({
+  chatId: {
+    type: String,
+    default: ''
+  }
+})
+
+const {chatId} = toRefs(props)
+
+
 
 const messages = ref([
       { id: 1, text: 'Mensaje 1', author: 1 },
@@ -12,7 +20,7 @@ const messages = ref([
 
 const messagesFiltered = computed(()=>{
   return messages.value.filter((msg) => {
-    return `${msg.author}` === route.params.chatId
+    return `${msg.author}` === chatId.value
   })})
 </script>
 
